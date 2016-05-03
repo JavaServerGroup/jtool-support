@@ -6,7 +6,7 @@
 
     <groupId>com.jtool</groupId>
     <artifactId>jtool-support</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 
     <build>
         <pluginManagement>
@@ -40,12 +40,17 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+        </dependency>
         <!--jee servlet-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
-            <!--<scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
