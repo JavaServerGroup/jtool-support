@@ -23,7 +23,13 @@ public class LogAndProjectFilter implements Filter {
         LogHelper.setLogId(logId);
         String projectName = req.getServletContext().getAttribute("projectName").toString();
         LogHelper.setProjectName(projectName);
-        chain.doFilter(request,response);
+        try{
+            chain.doFilter(request,response);
+        } finally {
+            LogHelper.removeLogId();
+            LogHelper.removeProjectName();
+            LogHelper.removeLogUserId();
+        }
     }
 
     public void destroy() {
