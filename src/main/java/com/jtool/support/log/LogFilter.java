@@ -15,7 +15,13 @@ public class LogFilter implements Filter {
             logId = UUID.randomUUID().toString();
         }
         LogHelper.setLogId(logId);
-        chain.doFilter(request,response);
+        try{
+            chain.doFilter(request,response);
+        } finally {
+            LogHelper.removeLogId();
+            //MDC removeKey前会判断该key是否存在
+            LogHelper.removeLogUserId();
+        }
     }
 
     public void destroy() {
